@@ -19,7 +19,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int count = 0;
+	int counter = 0;
 	const char *ptr;
 
 	if (!format)
@@ -32,22 +32,22 @@ int _printf(const char *format, ...)
 		{
 			ptr++;
 			if (*ptr == 'c')
-				count += _putchar(va_arg(args, int));
+				counter += _putchar(va_arg(args, int));
 			else if (*ptr == 's')
-				count += print_string(va_arg(args, char *));
+				counter += print_string(va_arg(args, char *));
 			else if (*ptr == 'd' || *ptr == 'i')
-				count += print_number(va_arg(args, int));
+				counter += print_number(va_arg(args, int));
 			else if (*ptr == '%')
-				count += _putchar('%');
+				counter += _putchar('%');
 			else
 			{
-				count += _putchar('%');
-				count += _putchar(*ptr);
+				counter += _putchar('%');
+				counter += _putchar(*ptr);
 			}
 		}
 		else
-			count += _putchar(*ptr);
+			counter += _putchar(*ptr);
 	}
 	va_end(args);
-	return (count);
+	return (counter);
 }
