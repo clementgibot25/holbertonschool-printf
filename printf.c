@@ -3,6 +3,19 @@
 #include <stdlib.h>
 #include "main.h"
 
+/**
+ * _printf - Produces output according to a specified format.
+ * @format: A character string containing directives and format specifiers.
+ *
+ * Description: This function mimics the behavior of the standard printf
+ * function, handling various format specifiers like %c, %s, %d, %i, and %%.
+ * It processes the format string, extracting and printing values from the
+ * variadic argument list as specified by the format specifiers.
+ *
+ * Return: The total number of characters printed, excluding the null byte
+ * used to end output to strings.
+ */
+
 int _printf(const char *format, ...)
 {
 	va_list args;
