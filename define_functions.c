@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include "main.h"
 
 /**
  * _putchar - writes the character c to stdout
@@ -12,41 +13,32 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-/**
- * _puts - prints a string
- * @str: The string to be printed
- *
- * Return: The number of characters printed
- */
-int _puts(char *str)
+int print_string(char *str)
 {
 	int count = 0;
-
+	if (!str)
+		str = "(null)";
 	while (*str)
-	{
-		_putchar(*str);
-		count++;
-		str++;
-	}
-
+		count += _putchar(*str++);
 	return (count);
 }
 
-/**
- * _strlen - returns the length of a string
- * @s: The string to be measured
- *
- * Return: The length of the string
- */
-int _strlen(char *s)
+int print_number(int n)
 {
 	int count = 0;
+	unsigned int num;
 
-	while (*s)
+	if (n < 0)
 	{
-		count++;
-		s++;
+		count += _putchar('-');
+		num = -n;
 	}
+	else
+		num = n;
+
+	if (num / 10)
+		count += print_number(num / 10);
+	count += _putchar((num % 10) + '0');
 
 	return (count);
 }

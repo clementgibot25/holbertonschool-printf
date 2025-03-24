@@ -1,47 +1,40 @@
-#include "main.h"
 #include <stdarg.h>
-#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include "main.h"
 
-/**
- * _printf - custom printf function
- * @format: format string
- * @...: variable arguments
- *
- * Return: number of characters printed
- */
 int _printf(const char *format, ...)
 {
 	va_list args;
 	int count = 0;
+	const char *ptr;
+
+	if (!format)
+		return (-1);
 
 	va_start(args, format);
-	while (*format)
+	for (ptr = format; *ptr; ptr++)
 	{
-		if (*format == '%')
+		if (*ptr == '%')
 		{
-			format++;
-			switch (*format)
+			ptr++;
+			if (*ptr == 'c')
+				count += _putchar(va_arg(args, int));
+			else if (*ptr == 's')
+				count += print_string(va_arg(args, char *));
+			else if (*ptr == 'd' || *ptr == 'i')
+				count += print_number(va_arg(args, int));
+			else if (*ptr == '%')
+				count += _putchar('%');
+			else
 			{
-				case 'c':
-					count += _putchar(va_arg(args, int));
-					break;
-				case 's':
-					count += _puts(va_arg(args, char *));
-					break;
-				case '%':
-					count += _putchar('%');
-					break;
-				default:
-					count += _putchar(*format);
+				count += _putchar('%');
+				count += _putchar(*ptr);
 			}
 		}
 		else
-		{
-			count += _putchar(*format);
-		}
-		format++;
+			count += _putchar(*ptr);
 	}
 	va_end(args);
-
 	return (count);
 }

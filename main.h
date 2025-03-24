@@ -3,7 +3,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char c);
-int _puts(char *str);
-int _strlen(char *s);
+int print_string(char *str);
+int print_number(int n);
 
 #endif
