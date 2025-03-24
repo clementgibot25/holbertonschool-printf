@@ -1,26 +1,64 @@
-_PRINTF(3)
+.TH PRINTF 3 "March 2025" "Holberton School" "Library Functions Manual"
+.SH NAME
+printf \- formatted output conversion
 
-NAME
-_printf - formatted output conversion
+.SH SYNOPSIS
+.B #include "main.h"
+.BI "int _printf(const char *format, ...);"
 
-SYNOPSIS
-_printf FORMAT [ARGUMENTS]...
-_printf OPTIONS
-DESCRIPTION
-_printf is a custom implementation of the printf function. It performs formatted output conversion and writes the resulting string to the standard output stream.
+.SH DESCRIPTION
+The
+.B _printf
+function produces output according to a
+.I format
+string. The format string is composed of zero or more directives: ordinary characters (which are copied to the output) and conversion specifications (which specify how subsequent arguments are formatted and printed).
 
-The format string is composed of zero or more directives: ordinary characters (not %), which are copied unchanged to the output stream, and conversion specifications, each of which results in fetching its argument.
+A conversion specification begins with a
+.B %
+and is followed by a character that determines the format. The supported format specifiers are:
 
-CONVERSION SPECIFICATIONS
-A conversion specification consists of a % character followed by one or more of the following elements:
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string of characters.
+.TP
+.B %d, %i
+Prints a signed decimal integer.
+.TP
+.B %%
+Prints a literal % character.
 
-%c: The argument is a single character. The character is printed.
-%s: The argument is a string. The string is printed.
-%d, %i: The argument is an integer. The integer is printed as a signed decimal number.
-%%: The argument is a % character. The % character is printed.
-RETURN VALUE
-Upon successful completion, _printf returns the number of characters printed. Otherwise, it returns -1 to indicate an error.
+.SH RETURN VALUE
+The function returns the number of characters printed (excluding the null byte used to end output strings). If an error occurs, it returns -1.
 
-ERRORS
-If the format string is NULL, _printf returns -1.
-If an invalid conversion specification is encountered, _printf returns -1.
+.SH EXAMPLES
+.nf
+.B #include "main.h"
+.B #include <stdio.h>
+
+.B int main(void)
+{
+    _printf("Hello, %s!\n", "world");
+    _printf("Character: %c, Number: %d\n", 'A', 42);
+    return (0);
+}
+.fi
+
+.SH NOTES
+The
+.B _printf
+function does not support all the features of the standard
+.B printf
+function in the C standard library. It is a custom implementation with limited format specifiers.
+
+.SH SEE ALSO
+.BR printf (3),
+.BR sprintf (3),
+.BR snprintf (3)
+
+.SH AUTHORS
+Arnaud Tilawat
+Clément Gibot
+
