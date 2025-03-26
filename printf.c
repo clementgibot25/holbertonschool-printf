@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 	for (ptr = format; *ptr; ptr++)
 	{
 		if (*ptr == '\0')
-			return (-1);
+			return (NULL);
 		if (*ptr == '%')
 		{
 			ptr++;
