@@ -32,20 +32,21 @@ int _printf(const char *format, ...)
 			return (-1);
 		if (*ptr == '%')
 		{
-			ptr++;
-			if (*ptr == 'c')
-				counter += _putchar(va_arg(args, int));
-			else if (*ptr == 's')
-				counter += print_string(va_arg(args, char *));
-			else if (*ptr == 'd' || *ptr == 'i')
-				counter += print_number(va_arg(args, int));
-			else if (*ptr == '%')
-				counter += _putchar('%');
-			else
-			{
-				counter += _putchar('%');
-				counter += _putchar(*ptr);
-			}
+		ptr++;
+		if (*ptr == 'c')
+			counter += _putchar(va_arg(args, int));
+		else if (*ptr == 's')
+			counter += print_string(va_arg(args, char *));
+		else if (*ptr == 'd' || *ptr == 'i')
+			counter += print_number(va_arg(args, int));
+		else if (*ptr == '%')
+			counter += _putchar('%');
+		if (*ptr == '\0')
+		{
+			return (0);
+		}
+			counter += _putchar('%');
+			counter += _putchar(*ptr);
 		}
 		else
 			counter += _putchar(*ptr);
