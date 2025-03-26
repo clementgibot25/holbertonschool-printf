@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			else if (*ptr == '%')
 				counter += _putchar('%');
 			else if (*ptr == '\0')
-				return (0);
+				return (-1);
 			else
 			{
 				counter += _putchar('%');
