@@ -28,6 +28,8 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	for (ptr = format; *ptr; ptr++)
 	{
+		if (*ptr == '\0')
+			return (-1);
 		if (*ptr == '%')
 		{
 			ptr++;
@@ -39,8 +41,6 @@ int _printf(const char *format, ...)
 				counter += print_number(va_arg(args, int));
 			else if (*ptr == '%')
 				counter += _putchar('%');
-			else if (*ptr == '\0')
-				return (-1);
 			else
 			{
 				counter += _putchar('%');
