@@ -28,8 +28,8 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	for (ptr = format; *ptr; ptr++)
 	{
-		if (*ptr == '\0')
-			return (NULL);
+		if (ptr == '\0')
+			return (-1);
 		if (*ptr == '%')
 		{
 			ptr++;
