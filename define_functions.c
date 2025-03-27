@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include "main.h"
 /**
  * _putchar - writes the character c to stdout
@@ -11,7 +10,6 @@ int _putchar(char c)
 {
 	return (write(1, &c, 1));
 }
-
 
 /**
  * print_string - Prints a string to stdout.
@@ -39,7 +37,6 @@ int print_string(char *str)
  * The function converts the integer to an unsigned equivalent for processing.
  * Return: The total number of characters printed.
  */
-
 
 int print_number(int n)
 {
