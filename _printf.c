@@ -36,6 +36,8 @@ int _printf(const char *format, ...)
 				counter += print_number(va_arg(args, int));
 			else if (*ptr == '%')
 				counter += _putchar('%');
+			else if (*ptr == '\0')
+			return (-1);
 			else
 			{
 				counter += _putchar('%');
