@@ -11,6 +11,7 @@ Supports the int type the specifiers %d,%i and the char type with %s,%c
 %% prints a '%' character
 
 **Flowchart**
+
 ![flowchart_printf drawio (1)](https://github.com/user-attachments/assets/a6d51070-33dd-4f66-9895-b4facc05bfd8)
 
 **Installation**
@@ -18,10 +19,12 @@ Supports the int type the specifiers %d,%i and the char type with %s,%c
 	
 	`git clone https://github.com/clementgibot25/holbertonschool-printf.git`
 	
-2 - Use this command to compile the program
-	`gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c `
+2 - Use this command to compile the program:
 
-3 - Run the output files to display it's content
+	`gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c`
+
+3 - Run the output files to display it's content:
+
 	`./a.out`
 
 **File description**
