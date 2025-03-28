@@ -20,19 +20,15 @@ Supports the int type the specifiers %d,%i and the char type with %s,%c
 
 1 - Clone the repository on your machine:
 
-	```
-	git clone https://github.com/clementgibot25/holbertonschool-printf.git
-	```
+	`git clone https://github.com/clementgibot25/holbertonschool-printf.git`
+
 2 - Use this command to compile the program:
 
-	```
-	gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c
-	```
+	`gcc -Wall -Wextra -Werror -pedantic -std=gnu89 -Wno-format *.c`
+
 3 - Run the output files to display it's content:
 
-	```
-	./a.out
-	```
+	`./a.out`
 
 **File description**
 
